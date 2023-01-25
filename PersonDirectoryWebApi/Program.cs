@@ -1,22 +1,32 @@
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using PersonDirectoryWebApi.DbContexts;
 using PersonDirectoryWebApi.Services.IRepositories;
 using PersonDirectoryWebApi.Services.Repositories;
+using System.Globalization;
 using Serilog;
+using System.Reflection;
 
 // configuring serilog logger
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
-    .WriteTo.File("logs/cityinfo.xml", rollingInterval: RollingInterval.Day)
+    .WriteTo.File("logs/log.xml", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
-// configuring that program use serialog logger instead of built-in logger
+// configuring that program use serialog logger instead of built-in loggers
 builder.Host.UseSerilog();
 
 // Add services to the container.
+builder.Services.AddControllers().AddFluentValidation(options =>
+                {
+                    options.ImplicitlyValidateChildProperties = true;
+                    options.ImplicitlyValidateRootCollectionElements = true;
+                    options.ValidatorOptions.LanguageManager.Culture = new CultureInfo("en-US");
+                    options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,7 +35,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PersonApiContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IPersonInfoRepository, PersonInfoRepository>();
 builder.Services.AddScoped<IRelatedPersonsInfoRepository, RelatedPersonsInfoRepository>();
-//registring automapper service. AddAutoMapper method allows us to pass through an area of assemblies, it's these assemblies that will automatically get scanned for profiles that contain mapping configurations (it will be in Profile file, which will be used to nicely organize mapping configuration). While registring autoMapper service, we need to state that we want to get the assemblies from the current AppDomain and we call into GetAssemblies on CurrentDomain on AppDomain, which ensure that the current assembly, so the cityinfo assembly will be scanned for profiles.
+builder.Services.AddScoped<IPhoneNumbersInfoRepository, PhoneNumbersInfoRepository>();
+builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();

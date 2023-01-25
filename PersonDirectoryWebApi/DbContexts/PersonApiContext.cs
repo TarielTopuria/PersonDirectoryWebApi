@@ -32,7 +32,42 @@ namespace PersonDirectoryWebApi.DbContexts
                 new City()
                 {
                     Id = 3,
+                    Name = "Kutaisi"
+                },
+                new City()
+                {
+                    Id = 4,
+                    Name = "Rustavi"
+                },
+                new City()
+                {
+                    Id = 5,
+                    Name = "Gori"
+                },
+                new City()
+                {
+                    Id = 6,
                     Name = "Zugdidi"
+                },
+                new City()
+                {
+                    Id = 7,
+                    Name = "Poti"
+                },
+                new City()
+                {
+                    Id = 8,
+                    Name = "Kobuleti"
+                },
+                new City()
+                {
+                    Id = 9,
+                    Name = "Khashuri"
+                },
+                new City()
+                {
+                    Id = 10,
+                    Name = "Telavi"
                 });
             #endregion
 
@@ -48,7 +83,7 @@ namespace PersonDirectoryWebApi.DbContexts
                     PersonalNumber = "00000000000",
                     DateOfBirth = new DateTime(1997, 5, 29),
                     CityId = 1,
-                    ImagePath = "Path to his image"
+                    ImagePath = "DefaultPath which will change after uploading photo"
                 },
                 new Person()
                 {
@@ -59,7 +94,7 @@ namespace PersonDirectoryWebApi.DbContexts
                     PersonalNumber = "00000000000",
                     DateOfBirth = new DateTime(1997, 1, 23),
                     CityId = 1,
-                    ImagePath = "Path to her image"
+                    ImagePath = "DefaultPath which will change after uploading photo"
                 },
                 new Person()
                 {
@@ -70,7 +105,7 @@ namespace PersonDirectoryWebApi.DbContexts
                     PersonalNumber = "00000000000",
                     DateOfBirth = new DateTime(1993, 6, 26),
                     CityId = 1,
-                    ImagePath = "Path to his image"
+                    ImagePath = "DefaultPath which will change after uploading photo"
                 },
                 new Person()
                 {
@@ -81,7 +116,7 @@ namespace PersonDirectoryWebApi.DbContexts
                     PersonalNumber = "00000000000",
                     DateOfBirth = new DateTime(1993, 5, 25),
                     CityId = 2,
-                    ImagePath = "Path to her image"
+                    ImagePath = "DefaultPath which will change after uploading photo"
                 });
             #endregion
 
@@ -100,19 +135,40 @@ namespace PersonDirectoryWebApi.DbContexts
                     Id = 2,
                     PhoneNumbers = "555555555",
                     NumberTypeId = Enums.NumberTypeEnum.Office,
-                    PersonId = 2
+                    PersonId = 1
                 },
                 new PhoneNumber()
                 {
                     Id = 3,
                     PhoneNumbers = "588888888",
                     NumberTypeId = Enums.NumberTypeEnum.Home,
-                    PersonId = 3
+                    PersonId = 1
                 },
                 new PhoneNumber()
                 {
                     Id = 4,
                     PhoneNumbers = "599999999",
+                    NumberTypeId = Enums.NumberTypeEnum.Mobile,
+                    PersonId = 2
+                },
+                new PhoneNumber()
+                {
+                    Id = 5,
+                    PhoneNumbers = "599999998",
+                    NumberTypeId = Enums.NumberTypeEnum.Mobile,
+                    PersonId = 3
+                },
+                new PhoneNumber()
+                {
+                    Id = 6,
+                    PhoneNumbers = "599999997",
+                    NumberTypeId = Enums.NumberTypeEnum.Home,
+                    PersonId = 3
+                },
+                new PhoneNumber()
+                {
+                    Id = 7,
+                    PhoneNumbers = "599999996",
                     NumberTypeId = Enums.NumberTypeEnum.Mobile,
                     PersonId = 4
                 });
@@ -124,7 +180,7 @@ namespace PersonDirectoryWebApi.DbContexts
                 new RelatedPerson()
                 {
                     Id = 1,
-                    FirstName = "Giorgi",
+                    FirstName = "Irakli",
                     LastName = "Giorgadze",
                     RelationTypeId = Enums.RelationTypeEnum.Colleague,
                     PersonId = 1
@@ -132,6 +188,14 @@ namespace PersonDirectoryWebApi.DbContexts
                 new RelatedPerson()
                 {
                     Id = 2,
+                    FirstName = "Nikoloz",
+                    LastName = "Bezhitashvili",
+                    RelationTypeId = Enums.RelationTypeEnum.Acquaintance,
+                    PersonId = 1
+                },
+                new RelatedPerson()
+                {
+                    Id = 3,
                     FirstName = "Nino",
                     LastName = "Darsavelidze",
                     RelationTypeId = Enums.RelationTypeEnum.Acquaintance,
@@ -139,7 +203,7 @@ namespace PersonDirectoryWebApi.DbContexts
                 },
                 new RelatedPerson()
                 {
-                    Id = 3,
+                    Id = 4,
                     FirstName = "Temuri",
                     LastName = "Tvildiani",
                     RelationTypeId = Enums.RelationTypeEnum.Relative,
@@ -147,16 +211,23 @@ namespace PersonDirectoryWebApi.DbContexts
                 },
                 new RelatedPerson()
                 {
-                    Id = 4,
+                    Id = 5,
                     FirstName = "Tamta",
                     LastName = "Mtchedlishvili",
                     RelationTypeId = Enums.RelationTypeEnum.Other,
                     PersonId = 4
-                }
-                ,
+                },
                 new RelatedPerson()
                 {
-                    Id = 5,
+                    Id = 6,
+                    FirstName = "Giorgi",
+                    LastName = "Kopadze",
+                    RelationTypeId = Enums.RelationTypeEnum.Acquaintance,
+                    PersonId = 4
+                },
+                new RelatedPerson()
+                {
+                    Id = 7,
                     FirstName = "Giorgi",
                     LastName = "Megreli",
                     RelationTypeId = Enums.RelationTypeEnum.Colleague,

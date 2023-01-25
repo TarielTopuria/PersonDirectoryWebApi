@@ -1,11 +1,10 @@
 ﻿using static PersonDirectoryWebApi.Entities.Enums;
 
-namespace PersonDirectoryWebApi.Models
+namespace PersonDirectoryWebApi.Models.PhoneNumberModels
 {
-    public class PhoneNumbersDto
+    public class CreatePhoneNumbersDto
     {
         public string PhoneNumbers { get; set; }
         public NumberTypeEnum NumberTypeId { get; set; }
-        public string NumberType { get { return NumberTypeId.ToString(); } }
     }
 }

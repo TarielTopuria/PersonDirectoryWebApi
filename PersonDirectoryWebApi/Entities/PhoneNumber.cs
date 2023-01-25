@@ -1,14 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using static PersonDirectoryWebApi.Entities.Enums;
 
 namespace PersonDirectoryWebApi.Entities
 {
-    public class PhoneNumber
+    public class PhoneNumber : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         public string PhoneNumbers { get; set; }
         public NumberTypeEnum NumberTypeId { get; set; }
 

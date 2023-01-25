@@ -52,7 +52,42 @@ namespace PersonDirectoryWebApi.Migrations
                         new
                         {
                             Id = 3,
+                            Name = "Kutaisi"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Rustavi"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Gori"
+                        },
+                        new
+                        {
+                            Id = 6,
                             Name = "Zugdidi"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Poti"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Kobuleti"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Khashuri"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Telavi"
                         });
                 });
 
@@ -103,7 +138,7 @@ namespace PersonDirectoryWebApi.Migrations
                             DateOfBirth = new DateTime(1997, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Tato",
                             GenderId = 1,
-                            ImagePath = "Path to his image",
+                            ImagePath = "DefaultPath which will change after uploading photo",
                             LastName = "Topuria",
                             PersonalNumber = "00000000000"
                         },
@@ -114,7 +149,7 @@ namespace PersonDirectoryWebApi.Migrations
                             DateOfBirth = new DateTime(1997, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Sophio",
                             GenderId = 2,
-                            ImagePath = "Path to her image",
+                            ImagePath = "DefaultPath which will change after uploading photo",
                             LastName = "Khopheria",
                             PersonalNumber = "00000000000"
                         },
@@ -125,7 +160,7 @@ namespace PersonDirectoryWebApi.Migrations
                             DateOfBirth = new DateTime(1993, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Mikheil",
                             GenderId = 1,
-                            ImagePath = "Path to his image",
+                            ImagePath = "DefaultPath which will change after uploading photo",
                             LastName = "Topuria",
                             PersonalNumber = "00000000000"
                         },
@@ -136,7 +171,7 @@ namespace PersonDirectoryWebApi.Migrations
                             DateOfBirth = new DateTime(1993, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Dea",
                             GenderId = 2,
-                            ImagePath = "Path to her image",
+                            ImagePath = "DefaultPath which will change after uploading photo",
                             LastName = "Tvildiani",
                             PersonalNumber = "00000000000"
                         });
@@ -178,22 +213,43 @@ namespace PersonDirectoryWebApi.Migrations
                         {
                             Id = 2,
                             NumberTypeId = 2,
-                            PersonId = 2,
+                            PersonId = 1,
                             PhoneNumbers = "555555555"
                         },
                         new
                         {
                             Id = 3,
                             NumberTypeId = 3,
-                            PersonId = 3,
+                            PersonId = 1,
                             PhoneNumbers = "588888888"
                         },
                         new
                         {
                             Id = 4,
                             NumberTypeId = 1,
-                            PersonId = 4,
+                            PersonId = 2,
                             PhoneNumbers = "599999999"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            NumberTypeId = 1,
+                            PersonId = 3,
+                            PhoneNumbers = "599999998"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            NumberTypeId = 3,
+                            PersonId = 3,
+                            PhoneNumbers = "599999997"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            NumberTypeId = 1,
+                            PersonId = 4,
+                            PhoneNumbers = "599999996"
                         });
                 });
 
@@ -229,7 +285,7 @@ namespace PersonDirectoryWebApi.Migrations
                         new
                         {
                             Id = 1,
-                            FirstName = "Giorgi",
+                            FirstName = "Irakli",
                             LastName = "Giorgadze",
                             PersonId = 1,
                             RelationTypeId = 1
@@ -237,6 +293,14 @@ namespace PersonDirectoryWebApi.Migrations
                         new
                         {
                             Id = 2,
+                            FirstName = "Nikoloz",
+                            LastName = "Bezhitashvili",
+                            PersonId = 1,
+                            RelationTypeId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
                             FirstName = "Nino",
                             LastName = "Darsavelidze",
                             PersonId = 2,
@@ -244,7 +308,7 @@ namespace PersonDirectoryWebApi.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 4,
                             FirstName = "Temuri",
                             LastName = "Tvildiani",
                             PersonId = 3,
@@ -252,7 +316,7 @@ namespace PersonDirectoryWebApi.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 5,
                             FirstName = "Tamta",
                             LastName = "Mtchedlishvili",
                             PersonId = 4,
@@ -260,7 +324,15 @@ namespace PersonDirectoryWebApi.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 6,
+                            FirstName = "Giorgi",
+                            LastName = "Kopadze",
+                            PersonId = 4,
+                            RelationTypeId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
                             FirstName = "Giorgi",
                             LastName = "Megreli",
                             PersonId = 1,

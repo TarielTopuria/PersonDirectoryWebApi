@@ -4,11 +4,8 @@ using static PersonDirectoryWebApi.Entities.Enums;
 
 namespace PersonDirectoryWebApi.Entities
 {
-    public class Person
+    public class Person : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public GenderTypeEnum GenderId { get; set; }

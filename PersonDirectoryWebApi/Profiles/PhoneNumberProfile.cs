@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Models.PersonModels;
+using PersonDirectoryWebApi.Models.PhoneNumberModels;
 
 namespace PersonDirectoryWebApi.Profiles
 {
@@ -7,8 +9,10 @@ namespace PersonDirectoryWebApi.Profiles
     {
         public PhoneNumberProfile()
         {
-            CreateMap<Entities.PhoneNumber, Models.PhoneNumbersDto>();
-            CreateMap<CreatePersonDto, Entities.PhoneNumber>();
+            CreateMap<PhoneNumber, PhoneNumbersDto>();
+            CreateMap<CreatePersonDto, PhoneNumber>();
+            CreateMap<CreatePhoneNumbersDto, PhoneNumber>();
+            CreateMap<UpdatePhoneNumberDto, PhoneNumber>();
         }
     }
 }

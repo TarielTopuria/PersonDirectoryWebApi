@@ -9,7 +9,7 @@ namespace PersonDirectoryWebApi.Profiles
         public RelatedPersonsProfile()
         {
             CreateMap<RelatedPerson, RelativePersonsDto>();
-            CreateMap<RelatedPersonForCreationDto, RelatedPerson>();
+            CreateMap<CreateRelatedPersonDto, RelatedPerson>();
         }
     }
 }

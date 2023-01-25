@@ -2,7 +2,7 @@
 
 namespace PersonDirectoryWebApi.Models.RelatedPersons
 {
-    public class RelatedPersonForCreationDto
+    public class CreateRelatedPersonDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
