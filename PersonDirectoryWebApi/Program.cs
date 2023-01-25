@@ -24,7 +24,7 @@ builder.Services.AddControllers().AddFluentValidation(options =>
                 {
                     options.ImplicitlyValidateChildProperties = true;
                     options.ImplicitlyValidateRootCollectionElements = true;
-                    //options.ValidatorOptions.LanguageManager.Culture = new CultureInfo("en-US");
+                    options.ValidatorOptions.LanguageManager.Culture = new CultureInfo("en-US");
                     options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
                 });
 
