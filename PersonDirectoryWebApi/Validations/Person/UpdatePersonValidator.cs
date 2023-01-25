@@ -34,7 +34,7 @@ namespace PersonDirectoryWebApi.Validations.Person
             RuleFor(x => x.CityId)
                 .NotNull().WithMessage("The cityId field must not be null")
                 .NotEmpty().WithMessage("The cityId field must not be empty")
-                .LessThanOrEqualTo(3).WithMessage("There is only 3 cities");
+                .LessThanOrEqualTo(10).WithMessage("There is only 10 cities");
         }
     }
 }
