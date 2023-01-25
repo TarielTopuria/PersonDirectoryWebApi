@@ -6,6 +6,7 @@ using PersonDirectoryWebApi.Services.Repositories;
 using System.Globalization;
 using Serilog;
 using System.Reflection;
+using PersonDirectoryWebApi.Middleware;
 
 // configuring serilog logger
 Log.Logger = new LoggerConfiguration()
@@ -38,6 +39,7 @@ builder.Services.AddScoped<IRelatedPersonsInfoRepository, RelatedPersonsInfoRepo
 builder.Services.AddScoped<IPhoneNumbersInfoRepository, PhoneNumbersInfoRepository>();
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddSwaggerGen(x => { x.OperationFilter<AcceptLanguageHeaderFilter>(); });
 
 var app = builder.Build();
 
@@ -47,6 +49,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseWhen(context => context.Request.Path.StartsWithSegments("/api"), appBuilder =>
+{
+    appBuilder.UseMiddleware<ExtractAcceptLanguageMiddleware>();
+});
 
 app.UseHttpsRedirection();
 
