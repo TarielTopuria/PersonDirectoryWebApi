@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Models.PhoneNumberModels;
-using PersonDirectoryWebApi.Services.IRepositories;
-using PersonDirectoryWebApi.Services.Repositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
+using PersonDirectoryWebApi.Requests.PhoneNumberRequests;
 
 namespace PersonDirectoryWebApi.Controllers
 {
@@ -52,7 +51,7 @@ namespace PersonDirectoryWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PhoneNumbersDto>> CreatePhoneNumber(int personId, CreatePhoneNumbersDto phoneNumber)
+        public async Task<ActionResult<PhoneNumbersDto>> CreatePhoneNumber(int personId, CreatePhoneNumbersRequestDto phoneNumber)
         {
             try
             {
@@ -116,7 +115,7 @@ namespace PersonDirectoryWebApi.Controllers
         }
 
         [HttpPut("{phoneNumberId}")]
-        public async Task<ActionResult> UpdatePhoneNumber (int personId, int phoneNumberId, UpdatePhoneNumberDto phoneNumber)
+        public async Task<ActionResult> UpdatePhoneNumber (int personId, int phoneNumberId, UpdatePhoneNumberRequestDto phoneNumber)
         {
             if(!await _phoneNumbersInfoRepository.CheckPersonAsync(personId))
             {

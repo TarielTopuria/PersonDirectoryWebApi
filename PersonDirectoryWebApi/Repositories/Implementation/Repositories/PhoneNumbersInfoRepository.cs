@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonDirectoryWebApi.DbContexts;
 using PersonDirectoryWebApi.Entities;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
 
-namespace PersonDirectoryWebApi.Services.Repositories
+namespace PersonDirectoryWebApi.Repositories.Implementation.Repositories
 {
     public class PhoneNumbersInfoRepository : IPhoneNumbersInfoRepository
     {
@@ -49,7 +49,7 @@ namespace PersonDirectoryWebApi.Services.Repositories
 
         public async Task<bool> SaveChangesAsync()
         {
-            return (await _context.SaveChangesAsync() >= 0);
+            return await _context.SaveChangesAsync() >= 0;
         }
     }
 }

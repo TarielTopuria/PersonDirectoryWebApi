@@ -1,6 +1,6 @@
 ﻿using PersonDirectoryWebApi.Entities;
 
-namespace PersonDirectoryWebApi.Services.IRepositories
+namespace PersonDirectoryWebApi.Repositories.Abstraction.IRepositories
 {
     public interface IRelatedPersonsInfoRepository
     {

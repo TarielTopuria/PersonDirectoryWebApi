@@ -1,6 +1,6 @@
-﻿using PersonDirectoryWebApi.Services.IRepositories;
+﻿using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
 
-namespace PersonDirectoryWebApi.Services.Repositories
+namespace PersonDirectoryWebApi.Repositories.Implementation.Repositories
 {
     public class ImageRepository : IImageRepository
     {

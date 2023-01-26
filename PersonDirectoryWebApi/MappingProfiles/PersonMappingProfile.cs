@@ -2,18 +2,19 @@
 using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Models.PersonModels;
 using PersonDirectoryWebApi.Models.RelatedPersons;
+using PersonDirectoryWebApi.Requests.PersonRequests;
 
 namespace PersonDirectoryWebApi.Profiles
 {
-    public class PersonProfile : Profile
+    public class PersonMappingProfile : Profile
     {
-        public PersonProfile()
+        public PersonMappingProfile()
         {
             CreateMap<Person, PersonWithEverythingDto>();
             CreateMap<Person, PersonDto>();
             CreateMap<Person, RelationReportDto>();
-            CreateMap<UpdatePersonDto, Person>();
-            CreateMap<CreatePersonDto, Person>();
+            CreateMap<UpdatePersonRequestDto, Person>();
+            CreateMap<CreatePersonRequestDto, Person>();
         }
     }
 }

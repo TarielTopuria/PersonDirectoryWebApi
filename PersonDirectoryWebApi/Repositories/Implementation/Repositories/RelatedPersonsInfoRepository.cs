@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonDirectoryWebApi.DbContexts;
 using PersonDirectoryWebApi.Entities;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
 
-namespace PersonDirectoryWebApi.Services.Repositories
+namespace PersonDirectoryWebApi.Repositories.Implementation.Repositories
 {
     public class RelatedPersonsInfoRepository : IRelatedPersonsInfoRepository
     {
@@ -17,7 +17,7 @@ namespace PersonDirectoryWebApi.Services.Repositories
         public async Task AddRelatedPerson(int personId, RelatedPerson relatedPerson)
         {
             var person = await GetPersonAsync(personId);
-            if(person != null) 
+            if (person != null)
             {
                 person.Relatives.Add(relatedPerson);
             }
@@ -35,7 +35,7 @@ namespace PersonDirectoryWebApi.Services.Repositories
 
         public async Task<RelatedPerson?> GetRelatedPersonAsync(int personId, int relatedPersonId)
         {
-            return await _context.RelatedPersons.Where(p => p.PersonId == personId && p.Id== relatedPersonId).FirstOrDefaultAsync();
+            return await _context.RelatedPersons.Where(p => p.PersonId == personId && p.Id == relatedPersonId).FirstOrDefaultAsync();
         }
 
         public async Task<Person?> GetPersonAsync(int personId)
@@ -45,7 +45,7 @@ namespace PersonDirectoryWebApi.Services.Repositories
 
         public async Task<bool> SaveChangesAsync()
         {
-            return (await _context.SaveChangesAsync() >= 0);
+            return await _context.SaveChangesAsync() >= 0;
         }
 
         public async Task<IEnumerable<Person>> GetPersonsAsync()

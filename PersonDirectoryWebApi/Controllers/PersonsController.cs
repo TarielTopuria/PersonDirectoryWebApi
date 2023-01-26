@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using PersonDirectoryWebApi.Entities;
-using PersonDirectoryWebApi.Models.ImageModels;
 using PersonDirectoryWebApi.Models.PersonModels;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
+using PersonDirectoryWebApi.Requests.ImageRequests;
+using PersonDirectoryWebApi.Requests.PersonRequests;
 using System.Text.Json;
 
 namespace PersonDirectoryWebApi.Controllers
@@ -51,7 +51,6 @@ namespace PersonDirectoryWebApi.Controllers
             }
         }
 
-
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetPerson(int Id)
         {
@@ -74,7 +73,7 @@ namespace PersonDirectoryWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PersonDto>> CreatePerson(CreatePersonDto person)
+        public async Task<ActionResult<PersonDto>> CreatePerson(CreatePersonRequestDto person)
         {
             try
             {
@@ -93,7 +92,7 @@ namespace PersonDirectoryWebApi.Controllers
         }
 
         [HttpPut("{personId}")]
-        public async Task<ActionResult> UpdatePerson(int personId, UpdatePersonDto newPerson)
+        public async Task<ActionResult> UpdatePerson(int personId, UpdatePersonRequestDto newPerson)
         {
             try
             {
@@ -155,7 +154,7 @@ namespace PersonDirectoryWebApi.Controllers
         }
 
         [HttpPut("uploadImage")]
-        public async Task<ActionResult> UploadImage([FromQuery] ImageUploadDto imageToUpload)
+        public async Task<ActionResult> UploadImage([FromQuery] ImageUploadRequestDto imageToUpload)
         {
             try
             {

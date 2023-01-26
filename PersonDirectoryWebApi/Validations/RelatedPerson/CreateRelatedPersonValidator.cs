@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using PersonDirectoryWebApi.Models.RelatedPersons;
+using PersonDirectoryWebApi.Requests.RelatedPersonsRequests;
 
 namespace PersonDirectoryWebApi.Validations.RelatedPerson
 {
-    public class CreateRelatedPersonValidator : AbstractValidator<CreateRelatedPersonDto>
+    public class CreateRelatedPersonValidator : AbstractValidator<CreateRelatedPersonRequestDto>
     {
         public CreateRelatedPersonValidator()
         {

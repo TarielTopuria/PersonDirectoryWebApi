@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PersonDirectoryWebApi.DbContexts;
 using PersonDirectoryWebApi.Entities;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
 using PersonDirectoryWebApi.Services.Pagination;
 
-namespace PersonDirectoryWebApi.Services.Repositories
+namespace PersonDirectoryWebApi.Repositories.Implementation.Repositories
 {
     public class PersonInfoRepository : IPersonInfoRepository
     {
@@ -61,7 +61,7 @@ namespace PersonDirectoryWebApi.Services.Repositories
             {
                 searchQuery = searchQuery.Trim();
                 collection = collection.Where(a => a.FirstName.Contains(searchQuery)
-                    || (a.LastName != null && a.LastName.Contains(searchQuery)));
+                    || a.LastName != null && a.LastName.Contains(searchQuery));
             }
 
             var totalItemCount = await collection.CountAsync();
@@ -79,10 +79,10 @@ namespace PersonDirectoryWebApi.Services.Repositories
         }
         public async Task<bool> SaveChangesAsync()
         {
-            return (await _context.SaveChangesAsync() >= 0);
+            return await _context.SaveChangesAsync() >= 0;
         }
 
-        public async Task<int> UpdateAsync (Person person)
+        public async Task<int> UpdateAsync(Person person)
         {
             _context.Update(person);
             return await _context.SaveChangesAsync();

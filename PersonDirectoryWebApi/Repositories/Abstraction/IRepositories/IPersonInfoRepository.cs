@@ -1,7 +1,7 @@
 ﻿using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Services.Pagination;
 
-namespace PersonDirectoryWebApi.Services.IRepositories
+namespace PersonDirectoryWebApi.Repositories.Abstraction.IRepositories
 {
     public interface IPersonInfoRepository
     {

@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using PersonDirectoryWebApi.Models.ImageModels;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Requests.ImageRequests;
 
 namespace PersonDirectoryWebApi.Validations.Image
 {
-    public class ImageUploadValidator : AbstractValidator<ImageUploadDto>
+    public class ImageUploadValidator : AbstractValidator<ImageUploadRequestDto>
     {
         public ImageUploadValidator()
         {

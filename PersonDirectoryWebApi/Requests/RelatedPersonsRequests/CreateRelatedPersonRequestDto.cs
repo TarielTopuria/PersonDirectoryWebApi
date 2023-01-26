@@ -1,8 +1,8 @@
 ﻿using static PersonDirectoryWebApi.Entities.Enums;
 
-namespace PersonDirectoryWebApi.Models.RelatedPersons
+namespace PersonDirectoryWebApi.Requests.RelatedPersonsRequests
 {
-    public class CreateRelatedPersonDto
+    public class CreateRelatedPersonRequestDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

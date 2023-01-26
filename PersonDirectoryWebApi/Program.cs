@@ -1,12 +1,12 @@
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using PersonDirectoryWebApi.DbContexts;
-using PersonDirectoryWebApi.Services.IRepositories;
-using PersonDirectoryWebApi.Services.Repositories;
 using System.Globalization;
 using Serilog;
 using System.Reflection;
 using PersonDirectoryWebApi.Middleware;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
+using PersonDirectoryWebApi.Repositories.Implementation.Repositories;
 
 // configuring serilog logger
 Log.Logger = new LoggerConfiguration()
@@ -56,6 +56,8 @@ app.UseWhen(context => context.Request.Path.StartsWithSegments("/api"), appBuild
 });
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ErrorLoggingMiddleware>();
 
 app.UseAuthorization();
 

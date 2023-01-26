@@ -1,8 +1,8 @@
 ﻿using static PersonDirectoryWebApi.Entities.Enums;
 
-namespace PersonDirectoryWebApi.Models.PhoneNumberModels
+namespace PersonDirectoryWebApi.Requests.PhoneNumberRequests
 {
-    public class CreatePhoneNumbersDto
+    public class UpdatePhoneNumberRequestDto
     {
         public string PhoneNumbers { get; set; }
         public NumberTypeEnum NumberTypeId { get; set; }

@@ -1,8 +1,8 @@
 ﻿using static PersonDirectoryWebApi.Entities.Enums;
 
-namespace PersonDirectoryWebApi.Models.PersonModels
+namespace PersonDirectoryWebApi.Requests.PersonRequests
 {
-    public class UpdatePersonDto
+    public class UpdatePersonRequestDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

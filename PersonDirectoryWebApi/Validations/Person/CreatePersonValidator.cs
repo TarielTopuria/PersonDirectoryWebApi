@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using PersonDirectoryWebApi.Models.PersonModels;
+using PersonDirectoryWebApi.Requests.PersonRequests;
 
 namespace PersonDirectoryWebApi.Validations.Person
 {
-    public class CreatePersonValidator : AbstractValidator<CreatePersonDto>
+    public class CreatePersonValidator : AbstractValidator<CreatePersonRequestDto>
     {
         public CreatePersonValidator()
         {

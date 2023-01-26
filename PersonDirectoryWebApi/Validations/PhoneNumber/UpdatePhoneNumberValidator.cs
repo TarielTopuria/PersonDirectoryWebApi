@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using PersonDirectoryWebApi.Models.PhoneNumberModels;
+using PersonDirectoryWebApi.Requests.PhoneNumberRequests;
 
 namespace PersonDirectoryWebApi.Validations.PhoneNumber
 {
-    public class UpdatePhoneNumberValidator : AbstractValidator<UpdatePhoneNumberDto>
+    public class UpdatePhoneNumberValidator : AbstractValidator<UpdatePhoneNumberRequestDto>
     {
         public UpdatePhoneNumberValidator()
         {

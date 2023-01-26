@@ -1,15 +1,16 @@
 ﻿using AutoMapper;
 using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Models.RelatedPersons;
+using PersonDirectoryWebApi.Requests.RelatedPersonsRequests;
 
 namespace PersonDirectoryWebApi.Profiles
 {
-    public class RelatedPersonsProfile : Profile
+    public class RelatedPersonsMappingProfile : Profile
     {
-        public RelatedPersonsProfile()
+        public RelatedPersonsMappingProfile()
         {
             CreateMap<RelatedPerson, RelativePersonsDto>();
-            CreateMap<CreateRelatedPersonDto, RelatedPerson>();
+            CreateMap<CreateRelatedPersonRequestDto, RelatedPerson>();
         }
     }
 }

@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PersonDirectoryWebApi.Entities;
 using PersonDirectoryWebApi.Models.RelatedPersons;
-using PersonDirectoryWebApi.Services.IRepositories;
+using PersonDirectoryWebApi.Repositories.Abstraction.IRepositories;
+using PersonDirectoryWebApi.Requests.RelatedPersonsRequests;
 
 namespace PersonDirectoryWebApi.Controllers
 {
@@ -67,7 +68,7 @@ namespace PersonDirectoryWebApi.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<RelativePersonsDto>> CreateRelatedPerson(int personId, CreateRelatedPersonDto relatedPerson)
+        public async Task<ActionResult<RelativePersonsDto>> CreateRelatedPerson(int personId, CreateRelatedPersonRequestDto relatedPerson)
         {
             try
             {
